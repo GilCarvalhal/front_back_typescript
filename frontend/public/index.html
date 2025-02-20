@@ -4,9 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Front e Back com Typescript</title>
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body>
-    <script src="./dist/index.js"></script>
+    <div id="container">
+      <h2 id="title">Front e Back</h2>
+
+      <button id="create">Create</button>
+    </div>
+    <!-- <script src="./dist/index.js"></script> -->
+    <script>
+      const buttonCreate = document.querySelector("#create");
+
+      buttonCreate.addEventListener("click", async function () {
+        try {
+          const response = await fetch('http://localhost:3000/user/create', {
+            method: 'post',
+          });
+          body: JSON.stringify({ nome: "Gil" })
+          console.log(await response.json());
+        } catch (error) {
+          console.log(error);
+        }
+      });
+    </script>
   </body>
 </html>
